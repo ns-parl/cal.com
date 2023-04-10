@@ -32,6 +32,7 @@ function TeamPage({ team, isUnpublished }: TeamPageProps) {
   const isEmbed = useIsEmbed();
   const telemetry = useTelemetry();
   const router = useRouter();
+  const queryString = new URLSearchParams(router.query).toString();
   const teamName = team.name || "Nameless Team";
   const isBioEmpty = !team.bio || !team.bio.replace("<p><br></p>", "").length;
 
@@ -65,7 +66,7 @@ function TeamPage({ team, isUnpublished }: TeamPageProps) {
           )}>
           <div className="px-6 py-4 ">
             <Link
-              href={`/team/${team.slug}/${type.slug}`}
+              href={`/team/${team.slug}/${type.slug}?${queryString}`}
               data-testid="event-type-link"
               className="flex justify-between">
               <div className="flex-shrink">
