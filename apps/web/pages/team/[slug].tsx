@@ -32,6 +32,7 @@ function TeamPage({ team, isUnpublished }: TeamPageProps) {
   const isEmbed = useIsEmbed();
   const telemetry = useTelemetry();
   const router = useRouter();
+  // @ts-nocheck
   const queryString = new URLSearchParams(router.query).toString();
   const teamName = team.name || "Nameless Team";
   const isBioEmpty = !team.bio || !team.bio.replace("<p><br></p>", "").length;
